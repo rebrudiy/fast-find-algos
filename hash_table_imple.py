@@ -32,16 +32,16 @@ class HashTable:
             self.collisioncount += 1
             self.table[index] = new_node
         self.size += 1
+
     def search(self, key):
         index = self._hash(key)
 
         current = self.table[index]
         while current:
             if current.key == key:
-                return current.value
+                return current.values
             current = current.next
 
-        raise KeyError(key)
 
     def remove(self, key):
         index = self._hash(key)

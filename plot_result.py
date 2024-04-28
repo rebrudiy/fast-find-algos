@@ -1,17 +1,18 @@
 import matplotlib.pyplot as plt
-
-x = [20, 100, 1000, 10000, 57545, 60307, 100000]
-bb = [9.380000847158954e-07, 3.329996616230346e-07, 3.179993655066937e-07, 7.509997885790654e-07, 18.509997885790654e-06, 20.509997885790654e-06, 270.509997885790654e-06]
-ss = [4.289995558792725e-07, 2.3800021153874695e-07, 1.8799983081407845e-07, 4.579997039400041e-07, 20.509997885790654e-06, 23.509997885790654e-06, 255.509997885790654e-06]
-mm = [4.4500029616756365e-07, .020005922531709e-07, 3.120003384537995e-07, 3.759996616281569e-07, 9.509997885790654e-06, 9.509997885790654e-06, 120.509997885790654e-06]
-
-plt.plot(x, bb, color='r', label='buble')
-plt.plot(x, ss, color='g', label='shake')
-plt.plot(x, mm, color='b', label='merge')
+from hash_table_test import hash_table_search_time
+from binarytreetest import binary_search_tree_time
+from red_black_tree_test import rb_tree_time
+lens = [20, 100, 1000, 10000, 57545, 60307, 100000]
+hash_table_search_time.reverse()
+binary_search_tree_time.reverse()
+rb_tree_time.reverse()
+plt.plot(lens, hash_table_search_time, color='r', label='hash')
+plt.plot(lens, binary_search_tree_time, color='g', label='binary')
+plt.plot(lens, rb_tree_time, color='b', label='redblack')
 # Naming the x-axis, y-axis and the whole graph
 plt.xlabel("len")
 plt.ylabel("time")
-plt.title("sorts speed")
+plt.title("find element")
 plt.legend()
 
 # To load the display window
