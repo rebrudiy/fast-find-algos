@@ -5,14 +5,16 @@ import timeit
 
 table = 0
 keyer = 0
+
 def find():
     table.search(keyer)
 
 
 hash_table = []
-
+lengths = []
 for i in databases:
-    head = HashTable(len(i))
+    lengths.append(len(i))
+    head = HashTable(1000000)
     for j in range(len(i)):
         head.insert(i[j].name, i[j])
     hash_table.append(head)
